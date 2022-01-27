@@ -1,0 +1,15 @@
+.title-font {
+    font-size: 3rem !important;
+}
+
+.stickyBox {
+    top: 100px !important;
+}
+
+.blog-bg {
+    background-color: rgba(246, 246, 246, 0.966) !important;
+}
+
+.blog-card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
