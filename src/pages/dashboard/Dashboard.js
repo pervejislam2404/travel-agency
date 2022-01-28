@@ -21,9 +21,9 @@ const Dashboard = () => {
       } 
 
     return (
-        <div className="">
+        <div className="bg-light">
             <div className="container my-5">
-                 <div className="row border">
+                 <div className="row">
                      <div className="col-12 col-md-3 col-lg-3">
                         <ul className="list-group border-0">
                             
@@ -62,7 +62,7 @@ const Dashboard = () => {
                      </div>
 
                      {/* all-dashboard-route */}
-                     <div className="col-12 col-md-9 col-lg-9 border dash-bg">
+                     <div className="col-12 col-md-9 col-lg-9 dash-bg">
                          <Outlet/>
                      </div>
                  </div>

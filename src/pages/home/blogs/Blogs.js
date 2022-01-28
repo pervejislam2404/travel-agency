@@ -45,6 +45,7 @@ const Blogs = () => {
                                                 <h1 className="">{title}</h1>
                                                 <div className="m-0 my-4">
                                                     <span style={{backgroundColor: '#D67D3E'}} className="rounded-pill px-3 text-light fw-bold p-2">{location}</span>
+                                                    <span style={{backgroundColor: '#396EB0'}} className="rounded-pill px-3 text-light fw-bold p-2 ms-4">{price} $</span>
                                                 </div>
                                                 <div className="">
                                                     <p>{date}</p>
@@ -73,7 +74,7 @@ const Blogs = () => {
                     {/* sidebar */}
                     <div  className="col-ld-3 col-md-3 col-12">
 
-                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore beatae veritatis quas itaque est tempore, vel doloribus fugit dolorem nostrum, repudiandae fugiat voluptate perspiciatis quisquam hic aliquid? Eos assumenda itaque quo deleniti odit tempore, alias repudiandae at reiciendis perferendis officia corrupti. Id nam libero fuga voluptate, qui reprehenderit, dolorem itaque, quisquam veritatis pariatur eius ratione cumque impedit! Dignissimos atque eius, id et earum quam sit similique deserunt cupiditate, nam alias! Autem, consectetur recusandae aliquid, similique rem minima labore facilis possimus sapiente voluptatum tempora nesciunt fugit in aut? Magnam quam mollitia libero maiores cumque error neque velit, cupiditate, illo ut earum excepturi praesentium sunt minima quidem recusandae dolorum architecto corrupti ratione, quas omnis repudiandae amet quasi a? Illum nam quidem, itaque corrupti esse minima earum, rem distinctio adipisci magnam harum blanditiis ad. Fugiat quas accusantium illo ad at distinctio veritatis labore, dolore nemo provident debitis reprehenderit quos molestias reiciendis, placeat quae iusto, dolorem facilis voluptatibus magnam. Sint, asperiores? Laboriosam, obcaecati illo? Enim, inventore! Voluptate perspiciatis pariatur tenetur ipsum accusamus molestiae dignissimos architecto repellendus enim ullam, dicta atque, similique sequi itaque assumenda reiciendis quibusdam reprehenderit distinctio? Perferendis libero eligendi numquam iure inventore cumque sint aliquam neque eos necessitatibus.
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore beatae veritatis quas itaque est tempore, vel doloribus fugit dolorem nostrum, repudiandae fugiat voluptate perspiciatis quisquam hic aliquid? Eos assumenda itaque quo deleniti odit tempore, alias repudiandae at reiciendis 
                              <div className="sticky-top stickyBox bg-light my-3 shadow p-4">
                                  <div className="d-flex py-1 justify-content-between">
                                      <h6>bangladesh</h6>

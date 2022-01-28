@@ -43,16 +43,18 @@ const BlogDetail = () => {
                                   <div className="p-4">
                                       <Card className="border-0 blog-card">
                                         <Card.Img  variant="top" src={blog?.photo} />
-                                            <Card.Body className="px-5">
+                                            <Card.Body className="px-5 pb-5">
                                                 <h1 className="">{blog.title}</h1>
+                                                
                                                 <div className="m-0 my-4">
                                                     <span style={{backgroundColor: '#D67D3E'}} className="rounded-pill px-3 text-light fw-bold p-2">{blog?.location}</span>
+                                                    <span style={{backgroundColor: '#396EB0'}} className="rounded-pill px-3 text-light fw-bold p-2 ms-4">{blog?.price} $</span>
                                                 </div>
-                                                <div className="pb-4">
-                                                    <span className="text-secondary fs-5">{blog?.date} || {blog?.name}</span>
-                                                 
+                                                <div className="">
+                                                    <p className="fw-bold text-secondary">Posted on {blog?.date}</p>
+                                                    <p className="text-uppercase fw-bold text-danger fs-5">{blog?.name}</p>
                                                 </div>
-                                                <Card.Text>
+                                                <Card.Text className="">
                                                          {blog?.description}
                                                 </Card.Text>
                                             </Card.Body>
