@@ -1,0 +1,9 @@
+.dash-bg {
+    background-image: url("https://www.worldatlas.com/r/w1200/upload/be/59/40/comoros-forest.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(12, 10, 10, .6) !important;
+    background-blend-mode: darken;
+    background-attachment: fixed;
+}

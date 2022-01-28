@@ -11,7 +11,8 @@ const AddBlog = () => {
     document.title=`travel agency -${location.pathname}`;
 
     const user = useSelector((state) => state.statesCounter.user);
-    console.log(user);
+    const admin = useSelector((state) => state.statesCounter.admin);
+    console.log(admin);
 
 
     const { register, handleSubmit, reset } = useForm();
@@ -30,35 +31,71 @@ const AddBlog = () => {
         data.email=user?.email;
 
 
-    if(data?.email && data.date){
-     console.log(data);
+        if(admin) {
 
-      axios.post(`http://localhost:4000/addBlog`, data,{
-      headers:{
-        'content-type':'application/json'
+        // add-blog-to-main-blog
+        if(data?.email && data.date){
+          axios.post(`http://localhost:4000/addBlog`, data,{
+          headers:{
+            'content-type':'application/json'
+          }
+        })
+        .then((res) => {
+          if (res?.data?._id) {
+            swal({
+              title: "Blog has been added!",
+              icon: "success",
+            });
+            reset();
+          } else {
+            swal({
+              title: "Oops something happend!",
+              icon: "error",
+            });
+          }
+        });
+  
+      }else{
+        swal({
+          title: "Oops something missing, try again!",
+          icon: "error",
+        });
       }
-    })
-      .then((res) => {
-        if (res?.data?._id) {
-          swal({
-            title: "Blog has been added!",
-            icon: "success",
-          });
-          reset();
-        } else {
-          swal({
-            title: "Oops something happend!",
-            icon: "error",
-          });
+      // end
+        }else{
+     // adding-blog-to-separate-collection-for-normal-user
+         data.status= 'pending'
+        if(data?.email && data.date){
+          axios.post(`http://localhost:4000/addBlogForUser`, data,{
+          headers:{
+            'content-type':'application/json'
+          }
+        })
+        .then((res) => {
+          if (res?.data?._id) {
+            swal({
+              title: "Blog has been added!",
+              icon: "success",
+            });
+            reset();
+          } else {
+            swal({
+              title: "Oops something happend!",
+              icon: "error",
+            });
+          }
+        });
+  
+      }else{
+        swal({
+          title: "Oops something missing, try again!",
+          icon: "error",
+        });
+      }
+     
+    // end
         }
-      });
 
-    }else{
-      swal({
-        title: "Oops something missing, try again!",
-        icon: "error",
-      });
-    }
   };
 
 
@@ -69,19 +106,20 @@ const AddBlog = () => {
         <div className="d-flex flex-column justify-content-center align-items-center bg-white p-4">
           
           {/* adding-product-with-information */}
-          <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
+          <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
             <div className="text-center text-danger fw-bold">
               <h3 className="fw-bold">Add A Product</h3>
             </div>
 
             <div className="d-flex gap-2 direction-lg-column direction-row ">
-              <input
+                <input
                  style={{ background: "rgb(238 238 238)" }}
                  className="w-100 p-3 fs-5 border-0 my-3 rounded"
                  type="text"
                  {...register("name", { required: true})}
                  placeholder="Traveler Name"
                  />
+
                     <input
                     style={{ background: "rgb(238 238 238)" }}
                     className="w-100 d-block p-3 fs-5 border-0 my-3 rounded"
@@ -135,7 +173,7 @@ const AddBlog = () => {
                     style={{ background: "rgb(238 238 238)" }}
                     className=" w-100 p-3 fs-5 border-0 my-3 rounded"
                     type="text"
-                    {...register("img", { required: true })}
+                    {...register("photo", { required: true })}
                     placeholder="Image link"
                     />
 

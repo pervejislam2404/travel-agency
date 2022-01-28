@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import './Blogs.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,10 +12,11 @@ const Blogs = () => {
     const [pageCount,setPageCount] = useState(0)
     const [page, setPage] = useState(0);
     const [size] = useState(10);
-    const [blogs,setBlogs] = useState() 
+    const [blogs,setBlogs] = useState(); 
 
-    console.log(page);
+    const navigate = useNavigate();
 
+    
     useEffect(() =>{
      axios('http://localhost:4000/blogs')
      .then(res=>{
@@ -26,7 +28,7 @@ const Blogs = () => {
 
 
     return (
-        <div className="blog-bg">
+        <div className="blog-bg pt-5">
             <div className="container">
                 <div className="row">
                     {/* main-blogs */}
@@ -34,23 +36,21 @@ const Blogs = () => {
                          <div className="row p-3">
                          {
                               blogs?.length && blogs.map((blog) =>{
-                                const {title, name,description,photo,price,category,location,date} = blog  
+                                const {title, name,description,photo,price,category,location,date,_id} = blog  
                                 return(
-                                  <div className="col-12 col-md-12 col-lg-6 p-4">
+                                  <div onClick={()=>navigate(`/details/${_id}`)} className="col-12 col-md-12 col-lg-12 p-4">
                                       <Card className="border-0 blog-card">
-                                        <Card.Img  variant="top" src={photo} />
-                                            <Card.Body className="px-5">
+                                        <Card.Img style={{height:'25rem'}} variant="top" src={photo} />
+                                            <Card.Body className="px-5 pb-5">
                                                 <h1 className="">{title}</h1>
                                                 <div className="m-0 my-4">
                                                     <span style={{backgroundColor: '#D67D3E'}} className="rounded-pill px-3 text-light fw-bold p-2">{location}</span>
                                                 </div>
                                                 <div className="">
                                                     <p>{date}</p>
-                                                    <p>{name}</p>
+                                                    <p className="text-uppercase">{name}</p>
                                                 </div>
-                                                <Card.Text>
-                                                         {description.slice(0,100)}
-                                                </Card.Text>
+                                                <Button variant="outline-info text-dark fw-bold">Read More</Button>
                                             </Card.Body>
                                         </Card>
                                   </div>
@@ -58,16 +58,16 @@ const Blogs = () => {
                           }
                          </div>
                            {/* pagination */}
-      <div className="d-flex justify-content-center py-5">
-          {
-            [...Array(pageCount).keys()]
-                .map(number => <button
-                    className={number === page ? 'border bg-info text-light ' : 'border-0'}
-                    key={number}
-                    onClick={() => setPage(number)}
-                ><div className="px-lg-5 px-md-5 px-3 fs-2 fs-lg-3">{number + 1}</div></button>)
-          }
-       </div>
+                    <div className="d-flex justify-content-center py-5">
+                        {
+                            [...Array(pageCount).keys()]
+                                .map(number => <button
+                                    className={number === page ? 'border bg-primary text-light m-2 rounded' : 'border-0 m-2 rounded'}
+                                    key={number}
+                                    onClick={() => setPage(number)}
+                                ><div className="px-lg-3 px-md-5 px-3 fs-4 fs-lg-5">{number + 1}</div></button>)
+                        }
+                    </div>
 
                     </div>
                     {/* sidebar */}

@@ -7,8 +7,9 @@ const Slider = () => {
       <Carousel>
         <Carousel.Item>
           <img
+            style={{height:'70vh'}}
             className="d-block w-100"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQufaBn_Wyc44BFf7zbpO3P7Ol7iQxQtYxrMQ&usqp=CAU"
+            src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_50616894_Large.jpg?crop=0,3,3000,1992&wid=828&hei=550&scl=3.6231884057971016"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -19,7 +20,8 @@ const Slider = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOPEI-6rlC3JiCsRAS1rmjOijuY9Ck6RC0IA&usqp=CAU"
+            style={{height:'70vh'}}
+            src="https://cdn.cnn.com/cnnnext/dam/assets/170123102533-beautiful-india-pangong-tso-flickr-alosh-bennett-4109608716-5d3d7224d7-o-exlarge-169.jpg"
             alt="Second slide"
           />
 
@@ -31,7 +33,8 @@ const Slider = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcIfYpk8Uasz8WwatoBSIjkfUThUvjH67ydA&usqp=CAU"
+            style={{height:'70vh'}}
+            src="https://www.teahub.io/photos/full/277-2777033_tropical-beach-wallpaper-hd.jpg"
             alt="Third slide"
           />
 

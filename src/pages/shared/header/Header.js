@@ -35,14 +35,18 @@ const Header = () => {
                   {/* Cart <Badge bg="info">{qut}</Badge> */}
                 </Link>
               </Nav.Link>
-              <Nav.Link>
+
+
+              {user?.email && <Nav.Link>
                 <Link
                   className="text-decoration-none text-light"
                   to="/dashboard"
                 >
                   Dashboard
                 </Link>
-              </Nav.Link>
+              </Nav.Link>}
+
+{/* 
               <Nav.Link>
                 <Link
                   className="text-decoration-none text-light"
@@ -50,7 +54,7 @@ const Header = () => {
                 >
                   products
                 </Link>
-              </Nav.Link>
+              </Nav.Link> */}
 
               {!user?.email && (
                 <Nav.Link href="#">
