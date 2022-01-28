@@ -9,9 +9,8 @@ const Dashboard = () => {
     const location = useLocation();
     document.title=`travel agency -${location.pathname}`;
 
-    const admin = true;
-    // useSelector(state=> state.statesCounter.admin);
-    console.log(admin);
+    const admin = useSelector(state => state.statesCounter.admin);
+ 
     const {googleSingOut} = useFirebase();
     const navigate = useNavigate();
 
@@ -21,10 +20,10 @@ const Dashboard = () => {
       } 
 
     return (
-        <div className="bg-light">
+        <div className="">
             <div className="container my-5">
                  <div className="row">
-                     <div className="col-12 col-md-3 col-lg-3">
+                     <div className="col-12 col-md-3 col-lg-3 shadow-lg">
                         <ul className="list-group border-0">
                             
                             {/* all-dashboard's-route */}
@@ -33,7 +32,7 @@ const Dashboard = () => {
                             </li>
                 
                             {admin && <li className="list-group-item border-0 px-0 fs-5">      
-                                <NavLink className={({ isActive }) => (isActive ? 'text-decoration-none text-light px-3 py-1 bg-dark d-block' : 'text-decoration-none text-dark px-3 py-1  d-block')} to="/dashboard/admin"> <i className="fas fa-user-lock px-2"></i>  Make Admin</NavLink>
+                                <NavLink className={({ isActive }) => (isActive ? 'text-decoration-none text-light px-3 py-1 bg-dark d-block' : 'text-decoration-none text-dark px-3 py-1  d-block')} to="/dashboard/admin"> <i className="fas fa-user-lock px-2"></i>Make Admin</NavLink>
                             </li>}
                 
                             {admin && <li className="list-group-item border-0 px-0 fs-5">  
@@ -49,9 +48,9 @@ const Dashboard = () => {
                                 <NavLink className={({ isActive }) => (isActive ? 'text-decoration-none text-light px-3 py-1 bg-dark d-block' : 'text-decoration-none text-dark px-3 py-1  d-block')} to="/dashboard/userBlog"><i className="fas fa-list-alt px-2"></i> Manage User Blogs</NavLink>
                             </li>}
                 
-                            {admin && <li className="list-group-item border-0 px-0 fs-5">    
+                             <li className="list-group-item border-0 px-0 fs-5">    
                                 <NavLink className={({ isActive }) => (isActive ? 'text-decoration-none text-light px-3 py-1 bg-dark d-block' : 'text-decoration-none text-dark px-3 py-1  d-block')} to="/dashboard/addBlog"><i className="fas fa-plus-circle px-2"></i>Add Blog</NavLink>
-                            </li>}
+                            </li>
                 
                 
                             <li className="list-group-item border-0 fs-5">  
@@ -62,7 +61,7 @@ const Dashboard = () => {
                      </div>
 
                      {/* all-dashboard-route */}
-                     <div className="col-12 col-md-9 col-lg-9 dash-bg">
+                     <div className="col-12 col-md-9 col-lg-9 dash-bg shadow-lg">
                          <Outlet/>
                      </div>
                  </div>

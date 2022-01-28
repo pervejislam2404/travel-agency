@@ -9,7 +9,7 @@ const ManageUserBlog = () => {
 
 
     useEffect(() =>{
-        axios('http://localhost:4000/userBlogs')
+        axios('https://thawing-waters-18467.herokuapp.com/userBlogs')
         .then(res=>{
             setBlogs(res.data)
         })
@@ -20,15 +20,14 @@ const ManageUserBlog = () => {
         delete blog?._id;
         delete blog?.__v;
         if(blog?.email && blog.date){
-            axios.post(`http://localhost:4000/addBlog`, blog)
+            axios.post(`https://thawing-waters-18467.herokuapp.com/addBlog`, blog)
           .then(res=>{
-              console.log(res.data);
           })
        }}
 
 
        const changeStatus = (id,blog) => {
-        axios.put(`http://localhost:4000/changeStatus/${id}`)
+        axios.put(`https://thawing-waters-18467.herokuapp.com/changeStatus/${id}`)
         .then(res=>{
             setBlogs(res.data);
             setLoader(true);
@@ -49,19 +48,18 @@ const ManageUserBlog = () => {
           })
           .then((willDelete) => {
             if (willDelete) {
-                fetch(`http://localhost:4000/deleteUserBlog/${id}`,{
+                fetch(`https://thawing-waters-18467.herokuapp.com/deleteUserBlog/${id}`,{
                     'method': 'DELETE',
                     'content-type': 'application/json'
                 })
                 .then(res=>{
-                    console.log(res);
                     if(res?.statusText === "OK"){
                         swal("Blog has been deleted!", {
                             icon: "success",
                           });
                           const filter = blogs.filter(pd =>pd._id !== id);
                           setBlogs(filter)
-                          setLoader(true);
+                          setLoader(Math.random * 5555);
                     }
                 })             
             } else {
@@ -74,7 +72,7 @@ const ManageUserBlog = () => {
 
     return (
         <div className="overflow-scroll m-3">
-             <Table bordered hover>
+             <Table bordered>
                 <thead>
                     <tr className="text-center text-white">
                     <th>Index</th>

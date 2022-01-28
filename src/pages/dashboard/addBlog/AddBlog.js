@@ -12,7 +12,6 @@ const AddBlog = () => {
 
     const user = useSelector((state) => state.statesCounter.user);
     const admin = useSelector((state) => state.statesCounter.admin);
-    console.log(admin);
 
 
     const { register, handleSubmit, reset } = useForm();
@@ -30,12 +29,14 @@ const AddBlog = () => {
         data.name=user?.displayName;
         data.email=user?.email;
 
+        data.ratting.toString();
+
 
         if(admin) {
 
         // add-blog-to-main-blog
         if(data?.email && data.date){
-          axios.post(`http://localhost:4000/addBlog`, data,{
+          axios.post(`https://thawing-waters-18467.herokuapp.com/addBlog`, data,{
           headers:{
             'content-type':'application/json'
           }
@@ -66,7 +67,7 @@ const AddBlog = () => {
      // adding-blog-to-separate-collection-for-normal-user
          data.status= 'pending'
         if(data?.email && data.date){
-          axios.post(`http://localhost:4000/addBlogForUser`, data,{
+          axios.post(`https://thawing-waters-18467.herokuapp.com/addBlogForUser`, data,{
           headers:{
             'content-type':'application/json'
           }
@@ -132,13 +133,13 @@ const AddBlog = () => {
 
             <div className="d-flex gap-2">
 
-                {/* <input
-                    style={{ background: "rgb(238 238 238)" }}
-                    className=" w-100 p-3 fs-5 border-0 my-3 rounded"
-                    type="text"
-                    {...register("Info", { required: true})}
-                    placeholder="About yourself"
-                    /> */}
+                   <input
+                      style={{ background: "rgb(238 238 238)" }}
+                      className=" w-100 p-3 fs-5 border-0 my-3 rounded"
+                      type="number"
+                      {...register("ratting", { required: true},{max: 5})}
+                      placeholder="Ratting 0 to 5"
+                    />
 
                     <input
                     style={{ background: "rgb(238 238 238)" }}

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Navbar, Container, Nav, Badge } from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Nav  } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import useFirebase from '../../../hooks/useFirebase';
@@ -7,7 +7,6 @@ import useFirebase from '../../../hooks/useFirebase';
 const Header = () => {
   const user = useSelector((state) => state.statesCounter.user);
   const { googleSingOut } = useFirebase();
-  const [qut, setQut] = useState();
   const handleSignOut = () => {
     googleSingOut();
   };
@@ -17,7 +16,7 @@ const Header = () => {
     <div className="sticky-top">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/home">Team commerce</Navbar.Brand>
+          <Navbar.Brand href="/home">TRAVEL AGENCY</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
@@ -46,15 +45,6 @@ const Header = () => {
                 </Link>
               </Nav.Link>}
 
-{/* 
-              <Nav.Link>
-                <Link
-                  className="text-decoration-none text-light"
-                  to="/products"
-                >
-                  products
-                </Link>
-              </Nav.Link> */}
 
               {!user?.email && (
                 <Nav.Link href="#">

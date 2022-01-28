@@ -126,7 +126,7 @@ useEffect(() => {
 
 
 useEffect(() => {
-  axios(`http://localhost:4000/checkAdmin/${user?.email}`)
+  axios(`https://thawing-waters-18467.herokuapp.com/checkAdmin/${user?.email}`)
   .then(res=>{
   dispatch(setAdmin(res.data))
   })
@@ -136,7 +136,7 @@ useEffect(() => {
 // saving-user-to-database
 const saveUser = (email, displayName, method) => {
   const user = { email, displayName };
-  fetch('http://localhost:4000/saveUser', {
+  fetch('https://thawing-waters-18467.herokuapp.com/saveUser', {
       method: method,
       headers: {
           'content-type': 'application/json'

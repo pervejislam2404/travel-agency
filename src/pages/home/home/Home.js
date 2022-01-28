@@ -5,7 +5,7 @@ import Blogs from '../blogs/Blogs';
 
 const Home = () => {
     const location = useLocation();
-    document.title=`travel agency -${location.pathname}`;
+    document.title=`travel agency -home`;
     return (
         <div>
             <Slider/>

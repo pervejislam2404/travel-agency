@@ -11,7 +11,7 @@ const AllBlogs = () => {
 
 
     useEffect(() =>{
-        axios('http://localhost:4000/blogs')
+        axios('https://thawing-waters-18467.herokuapp.com/blogs')
         .then(res=>{
             setAllBlogs(res.data)
         })
@@ -31,12 +31,11 @@ const handleDelete = (id) => {
       })
       .then((willDelete) => {
         if (willDelete) {
-            fetch(`http://localhost:4000/deleteBlog/${id}`,{
+            fetch(`https://thawing-waters-18467.herokuapp.com/deleteBlog/${id}`,{
                 'method': 'DELETE',
                 'content-type': 'application/json'
             })
             .then(res=>{
-                console.log(res);
                 if(res?.statusText === "OK"){
                     swal("Blog has been deleted!", {
                         icon: "success",
@@ -54,7 +53,7 @@ const handleDelete = (id) => {
 
     return (
         <div className="overflow-scroll m-2">
-           <Table  bordered hover>
+           <Table  bordered>
                 <thead>
                     <tr className="text-center text-light">
                     <th>Index</th>

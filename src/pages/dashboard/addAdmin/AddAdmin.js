@@ -23,15 +23,14 @@ const AddAdmin = () => {
     }
 
     const handleAddAdmin = e => {
-        e.preventDefault()
-        console.log(email)
-        axios.put(`http://localhost:4000/makeAdmin/${email}`).then(res => res.data ? handleShow() : '')
+        e.preventDefault();
+        axios.put(`https://thawing-waters-18467.herokuapp.com/makeAdmin/${email}`).then(res => res.data ? handleShow() : '')
 
     }
     return (
         <div>
-            <Container >
-            <h2 data-aos="fade-down-right" className='text-center'>Add An Admin</h2>
+            <Container  className="pt-5">
+            <h2 className='text-center text-light'>Add An Admin</h2>
             <form className='mt-3 pt-2 d-flex justify-content-center py-3' onSubmit={handleAddAdmin}>
                 <input required className='adminAdd   my-4 w-25' type="email" onChange={handleOnChange} placeholder='email' name="email" id="email" />
                 <button className='adminAdd btncolr px-5 mt-4 fs-3 '>Add </button>

@@ -13,6 +13,7 @@ export const counterSlice = createSlice({
         isLoading: true,
         idToken: '',
         admin: false,
+        blogInCountry: {}
 
     },
     reducers: {
@@ -34,10 +35,13 @@ export const counterSlice = createSlice({
         setAdmin: (state, { payload }) => {
             state.admin = payload;
         },
+        setBlogInCountry: (state, { payload }) => {
+            state.blogInCountry = payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setErrorMsg, setUser, setIsLoading, setGoogleSignErrorMsg, setIdToken, setAdmin } = counterSlice.actions
+export const { setErrorMsg, setUser, setIsLoading, setGoogleSignErrorMsg, setIdToken, setAdmin, setBlogInCountry } = counterSlice.actions
 
 export default counterSlice.reducer

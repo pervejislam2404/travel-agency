@@ -9,7 +9,7 @@ const UserBlog = () => {
     const user  = useSelector((state) => state.statesCounter.user) 
 
    useEffect(() => {
-        axios(`http://localhost:4000/blogDetailByEmail/${user?.email}`)
+        axios(`https://thawing-waters-18467.herokuapp.com/blogDetailByEmail/${user?.email}`)
         .then(res=>{
             setBlogs(res.data);
         })
@@ -17,8 +17,8 @@ const UserBlog = () => {
 
        
     return (
-        <div>
-             <Table  bordered hover>
+        <div  className="overflow-scroll">
+             <Table  bordered>
                 <thead>
                     <tr className="text-center text-light">
                     <th>Img</th>
