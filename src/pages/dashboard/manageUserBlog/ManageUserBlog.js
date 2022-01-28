@@ -8,7 +8,8 @@ const ManageUserBlog = () => {
     const [loader,setLoader] = useState(false); 
 
 
-    useEffect(() =>{
+    // getting-all-blogs-of-user
+      useEffect(() =>{
         axios('https://thawing-waters-18467.herokuapp.com/userBlogs')
         .then(res=>{
             setBlogs(res.data)
@@ -16,6 +17,7 @@ const ManageUserBlog = () => {
        },[loader])
 
 
+    //    publishing-a-blog-to-main-blog
        const publishBlog = (blog) => {
         delete blog?._id;
         delete blog?.__v;
@@ -25,7 +27,8 @@ const ManageUserBlog = () => {
           })
        }}
 
-
+ 
+    //    changing-approve-status
        const changeStatus = (id,blog) => {
         axios.put(`https://thawing-waters-18467.herokuapp.com/changeStatus/${id}`)
         .then(res=>{
