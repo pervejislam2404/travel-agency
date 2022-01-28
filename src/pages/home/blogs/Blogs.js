@@ -86,7 +86,7 @@ const Blogs = () => {
                          <div className="row p-3">
                             {
                               blogs?.length && blogs.map((blog) =>{
-                                const {title, name,photo,price,category,location,date,_id,ratting} = blog  
+                                const {title, name,photo,price,location,date,_id,ratting} = blog  
                                 return(
                                   <div onClick={()=>navigate(`/details/${_id}`)} className="col-12 col-md-12 col-lg-12 p-4">
                                       <Card className="border-0 blog-card">
